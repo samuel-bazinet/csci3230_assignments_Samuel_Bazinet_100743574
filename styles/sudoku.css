@@ -1,0 +1,63 @@
+table{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+table, td {
+    border: 1px solid black;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(77, 77, 77);
+}
+
+.number_pallete{
+    height: auto;
+    position:relative;
+    margin-top: 2em;
+}
+
+.number_pallete td{
+    width: 2em;
+    height: 2em;
+    
+}
+
+.cell {
+    
+    width: 2em;
+    height: 2em;
+}
+
+.cell:hover{
+    background-color: #f5dd90;
+}
+
+.trd {
+    border-right: 3px solid black;
+}
+
+.fst {
+    border-left: 3px solid black;
+}
+
+.rtop .cell{
+    border-top: 3px solid black;
+}
+
+.rlast .cell {
+    border-bottom: 3px solid black;
+}
+
+.number_pallete img {
+    width:0.75em;
+    height: auto;
+}
+
+.user-input {
+    background-color: #f2f2f2;
+}
+
+.error {
+    background-color: #f76c5e;
+}
