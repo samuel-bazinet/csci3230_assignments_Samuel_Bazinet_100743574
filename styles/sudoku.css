@@ -1,4 +1,5 @@
 table{
+    margin-top: 2em;
     border-collapse: collapse;
     margin-left: auto;
     margin-right:auto;
@@ -9,6 +10,20 @@ table, td {
     text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:rgb(77, 77, 77);
+}
+
+li {
+    list-style: none;
+}
+
+.high_score table, .high_score td {
+    border: none;
+}
+
+.hs_table_header {
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid black;
 }
 
 .number_pallete{
@@ -34,19 +49,19 @@ table, td {
 }
 
 .trd {
-    border-right: 3px solid black;
+    border-right: 2px solid black;
 }
 
 .fst {
-    border-left: 3px solid black;
+    border-left: 2px solid black;
 }
 
 .rtop .cell{
-    border-top: 3px solid black;
+    border-top: 2px solid black;
 }
 
 .rlast .cell {
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid black;
 }
 
 .number_pallete img {
@@ -60,4 +75,24 @@ table, td {
 
 .error {
     background-color: #f76c5e;
+}
+
+.td_left, .td_right {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 7em;
+}
+
+.td_left {
+    padding-right: .3em;
+}
+
+.td_right {
+    padding-left: .3em;
+}
+
+.navigation_bar img {
+    margin-right: 2em;
+    width: 2em;
+    height: 1.3em;
 }
