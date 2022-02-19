@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="./scripts/sudoku.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -39,108 +41,108 @@
     <section class="board_container">
         <table class="board" id="board">
             <tr class="rtop">
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c00"></td>
+                <td class="cell" id="c01"></td>
+                <td class="cell trd" id="c02"></td>
+                <td class="cell" id="c03"></td>
+                <td class="cell" id="c04"></td>
+                <td class="cell trd" id="c05"></td>
+                <td class="cell" id="c06"></td>
+                <td class="cell" id="c07"></td>
+                <td class="cell trd" id="c08"></td>
             </tr>
             <tr>
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c10"></td>
+                <td class="cell" id="c11"></td>
+                <td class="cell trd" id="c12"></td>
+                <td class="cell" id="c13"></td>
+                <td class="cell" id="c14"></td>
+                <td class="cell trd" id="c15"></td>
+                <td class="cell" id="c16"></td>
+                <td class="cell" id="c17"></td>
+                <td class="cell trd" id="c18"></td>
             </tr>
             <tr>
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c20"></td>
+                <td class="cell" id="c21"></td>
+                <td class="cell trd" id="c22"></td>
+                <td class="cell" id="c23"></td>
+                <td class="cell" id="c24"></td>
+                <td class="cell trd" id="c25"></td>
+                <td class="cell" id="c26"></td>
+                <td class="cell" id="c27"></td>
+                <td class="cell trd" id="c28"></td>
             </tr>
             <tr class="rtop">
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c30"></td>
+                <td class="cell" id="c31"></td>
+                <td class="cell trd" id="c32"></td>
+                <td class="cell" id="c33"></td>
+                <td class="cell" id="c34"></td>
+                <td class="cell trd" id="c35"></td>
+                <td class="cell" id="c36"></td>
+                <td class="cell" id="c37"></td>
+                <td class="cell trd" id="c38"></td>
             </tr>
             <tr>
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c40"></td>
+                <td class="cell" id="c41"></td>
+                <td class="cell trd" id="c42"></td>
+                <td class="cell" id="c43"></td>
+                <td class="cell" id="c44"></td>
+                <td class="cell trd" id="c45"></td>
+                <td class="cell" id="c46"></td>
+                <td class="cell" id="c47"></td>
+                <td class="cell trd" id="c48"></td>
             </tr>
             <tr>
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c50"></td>
+                <td class="cell" id="c51"></td>
+                <td class="cell trd" id="c52"></td>
+                <td class="cell" id="c53"></td>
+                <td class="cell" id="c54"></td>
+                <td class="cell trd" id="c55"></td>
+                <td class="cell" id="c56"></td>
+                <td class="cell" id="c57"></td>
+                <td class="cell trd" id="c58"></td>
             </tr>
             <tr class='rtop'>
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd "></td>
+                <td class="cell fst" id="c60"></td>
+                <td class="cell" id="c61"></td>
+                <td class="cell trd" id="c62"></td>
+                <td class="cell" id="c63"></td>
+                <td class="cell" id="c64"></td>
+                <td class="cell trd" id="c65"></td>
+                <td class="cell" id="c66"></td>
+                <td class="cell" id="c67"></td>
+                <td class="cell trd" id="c68"></td>
             </tr>
             <tr>
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c70"></td>
+                <td class="cell" id="c71"></td>
+                <td class="cell trd" id="c72"></td>
+                <td class="cell" id="c73"></td>
+                <td class="cell" id="c74"></td>
+                <td class="cell trd" id="c75"></td>
+                <td class="cell" id="c76"></td>
+                <td class="cell" id="c77"></td>
+                <td class="cell trd" id="c78"></td>
             </tr>
             <tr class="rlast">
-                <td class="cell fst"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
-                <td class="cell"></td>
-                <td class="cell"></td>
-                <td class="cell trd"></td>
+                <td class="cell fst" id="c80"></td>
+                <td class="cell" id="c81"></td>
+                <td class="cell trd" id="c82"></td>
+                <td class="cell" id="c83"></td>
+                <td class="cell" id="c84"></td>
+                <td class="cell trd" id="c85"></td>
+                <td class="cell" id="c86"></td>
+                <td class="cell" id="c87"></td>
+                <td class="cell trd" id="c88"></td>
             </tr>
         </table>
 
         <table class="number_pallete">
-            <tr>
+            <tr id="pallete">
                 <td>1</td>
                 <td>2</td>
                 <td>3</td>
