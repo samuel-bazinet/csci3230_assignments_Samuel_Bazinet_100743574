@@ -11,7 +11,7 @@ for (let i = 0; i < 9; i++) {
 }
 
 const undoStack = [];
-current = -1;
+current = 1;
 
 /*
 for (let i = 0; i < 9; i++) {
@@ -24,6 +24,7 @@ for (let i = 0; i < 9; i++) {
 $(document).ready(function() {
     //console.log("Hello");
     //buildBoard(gameBoard, 30);
+    makeBoard();
     buildBoardTest(gameBoard);
     undoStack.push(JSON.parse(JSON.stringify(gameBoard)));
 
@@ -46,6 +47,7 @@ $(document).ready(function() {
     $("#board td").click(function() {
         if ($(this).text() == "" ) {
             $(this).text(current);
+            $(this).addClass("user-input");
             console.log($(this).attr('id'));
             let x = parseInt($(this).attr('id')[1])
             let y = parseInt($(this).attr('id')[2])
@@ -57,34 +59,34 @@ $(document).ready(function() {
 
 });
 
-function setBoard(board) {
-    console.log("Board is being set");
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            let cellIndex = "#c"+i.toString()+(j).toString();
-            if (board[i][j] == -1) {
-                $(cellIndex).text("");
-                continue;
-            }
-            
-            //console.log(cellIndex);
-            $(cellIndex).text(board[i][j]);
-            $(cellIndex).text();
-            
-        }
-    }
-    clearAllErrors();
-    checkBoard(gameBoard);
-}
+function makeBoard() {
 
-function resetBoard(board) {
-    for (let i = 0; i < 9; i++) {      
-        for (let j = 0; j < 9; j++) {
-            board[i][j] = -1;
+    let table = document.getElementById('board');
+
+    for (let i = 0; i < 9; i++) {
+        let row = document.createElement('tr');
+        if (i % 3 == 0) {
+            row.className = "rtop";
+        } else if (i == 8) {
+            row.className = "rlast";
         }
-        
+
+        for (let j = 0; j < 9; j++) {
+            let col = document.createElement('td');
+            col.className = "cell";
+            if (j == 0) {
+                col.className += " fst";
+            } else if (j == 2 || j == 5 || j == 8) {
+                col.className += " trd";
+            }
+
+            col.id = "c" + i.toString() + j.toString();
+            row.appendChild(col);
+        }
+
+        table.appendChild(row);
     }
-}
+};
 
 function buildBoard(board, numberOfPrefilled) {
     do {
@@ -120,6 +122,38 @@ function buildBoardTest(board) {
     board[7][7] = 8;
     board[8][2] = 6;
 
+}
+
+function setBoard(board) {
+    console.log("Board is being set");
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            let cellIndex = "#c"+i.toString()+(j).toString();
+            if (board[i][j] == -1) {
+                $(cellIndex).text("");
+                if ($(cellIndex).hasClass("user-input")) {
+                    $(cellIndex).removeClass("user-input");
+                }
+                continue;
+            }
+            
+            //console.log(cellIndex);
+            $(cellIndex).text(board[i][j]);
+            $(cellIndex).text();
+            
+        }
+    }
+    clearAllErrors();
+    checkBoard(gameBoard);
+}
+
+function resetBoard(board) {
+    for (let i = 0; i < 9; i++) {      
+        for (let j = 0; j < 9; j++) {
+            board[i][j] = -1;
+        }
+        
+    }
 }
 
 function clearAllErrors() {
